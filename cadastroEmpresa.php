@@ -1,30 +1,132 @@
 <?php include "header.php";?>
 <?php include "nav.php";?>
 <body>
-<div class="container" align="center">
-	<h4> Cadastro de pessoa juridica</h4>
-<div class="col-md-2 text1"></div>
-<div class="col-md-4"><br/>
-	<p>Digite seu CNPJ:</p><br/>
-	<input class="form-control" placeholder="" type="text" id="cnpj" name="cnpj" required=""><br/>
-	<p>Digite seu e-mail:</p><br/>
-	<input class="form-control" placeholder="" type="email" id="email" name="email" required=""><br/>
-	<p>Digite seu telefone:</p><br/>
-	<input class="form-control" placeholder="" type="tel" id="phone" name="phone" required="">
+	
+<h4 align="center"> Cadastro de pessoa juridica</h4>
+
+<div class="col-md-11 control-label" align="right" >
+        <p class="help-block"><h11>*</h11>Campo Obrigatório</p>
 </div>
-<div class="col-md-4 text2"><br/>
-	<p>Digite seu nome:</p><br/>
-	<input class="form-control" placeholder=" " type="text" required=""><br/>
-	<p align="center">Digite o ramo da empresa:</p><br/>
-	<input class="form-control" placeholder=" Ex: Administração, Vendas, Manutenção" type="text" required=""><br/>
-	<br/>
-<br/>
+<div class="container" >
+	
+
+<div class="col-md-6">
+<br><br>
+
+	<form method="post" action="cadastroCNPJ.php">
+	<label>CNPJ: *</label>
+	<input class="form-control" placeholder="Digite seu CNPJ" type="text" id="cnpj" name="cnpj" required><br/>
+
+	<label>E-mail: *</label>
+	<input class="form-control" placeholder="Digite seu e-mail" type="email" id="email" name="email" required><br/>
+
+	<label>Telefone: *</label>
+	<input class="form-control" placeholder="Digite seu telefone" type="tel" id="phone" name="phone" required><br/>
+	
+	<label>Nome: *</label>
+	<input class="form-control" placeholder="Digite o nome da sua empresa" type="text"  id="nome" name="nome" required=""><br/>
+
+	<label>Ramo da empresa: *</label>
+	<input class="form-control" placeholder=" Ex: Administração, Vendas, Manutenção"  id="ramo" name="ramo" type="text" required><br/>
+
+	<label>Senha: *</label>
+	<input class="form-control" placeholder="Digite sua senha" type="password"  id="senha" name="senha" required> 
+	
+</div>
+
+<div class="col-md-6 text2">
+<br><br>
+<label>CEP: *</label>
+<input class="form-control" type="text" id="cep" name="cep" placeholder="Apenas números" required><br/>
+
+<label>Logradouro: *</label>
+<input class="form-control" type="text" id="logra" name="logra" placeholder="" required disabled><br/>
+
+<label>N°: *</label>
+<input class="form-control" type="text" id="numero" name="num" placeholder="" required><br/>
+
+<label>Bairro: *</label>
+<input class="form-control" type="text" id="bairro" name="bairro" placeholder="" required disabled><br/>
+
+<label>Cidade: *</label>
+<input class="form-control" type="text" id="cidade" name="cidade" placeholder="" required disabled><br/>
+
+<label>Estado: *</label>
+<select class="form-control" id="uf" name="uf" required disabled>
+      <option></option>
+      		<option value="AC">Acre</option>
+			<option value="AL">Alagoas</option>
+			<option value="AP">Amapá</option>
+			<option value="AM">Amazonas</option>
+			<option value="BA">Bahia</option>
+			<option value="CE">Ceará</option>
+			<option value="DF">Distrito Federal</option>
+			<option value="ES">Espírito Santo</option>
+			<option value="GO">Goiás</option>
+			<option value="MA">Maranhão</option>
+			<option value="MT">Mato Grosso</option>
+			<option value="MS">Mato Grosso do Sul</option>
+			<option value="MG">Minas Gerais</option>
+			<option value="PA">Pará</option>
+			<option value="PB">Paraíba</option>
+			<option value="PR">Paraná</option>
+			<option value="PE">Pernambuco</option>
+			<option value="PI">Piauí</option>
+			<option value="RJ">Rio de Janeiro</option>
+			<option value="RN">Rio Grande do Norte</option>
+			<option value="RS">Rio Grande do Sul</option>
+			<option value="RO">Rondônia</option>
+			<option value="RR">Roraima</option>
+			<option value="SC">Santa Catarina</option>
+			<option value="SP">São Paulo</option>
+			<option value="SE">Sergipe</option>
+      		<option value="TO">Tocantins</option>
+</select><br/>
+
+<script type="text/javascript">
+		$("#cep").focusout(function(){
+			//Início do Comando AJAX
+			$.ajax({
+				//O campo URL diz o caminho de onde virá os dados
+				//É importante concatenar o valor digitado no CEP
+				url: 'https://viacep.com.br/ws/'+$(this).val()+'/json/unicode/',
+				//Aqui você deve preencher o tipo de dados que será lido,
+				//no caso, estamos lendo JSON.
+				dataType: 'json',
+				//SUCESS é referente a função que será executada caso
+				//ele consiga ler a fonte de dados com sucesso.
+				//O parâmetro dentro da função se refere ao nome da variável
+				//que você vai dar para ler esse objeto.
+				success: function(resposta){
+					//Agora basta definir os valores que você deseja preencher
+					//automaticamente nos campos acima.
+					$("#logra").val(resposta.logradouro);
+					$("#bairro").val(resposta.bairro);
+					$("#cidade").val(resposta.localidade);
+					$("#uf").val(resposta.uf);
+					//Vamos incluir para que o Número seja focado automaticamente
+					//melhorando a experiência do usuário
+					$("#numero").focus();
+				}
+			});
+		});
+  </script>
+	
+
+</div>
+</div> <br>
+<div class="salvar" align="center">
+	
 <button class="btn btn-success" id="button1">Salvar</button>
 
 </div>
-</div>  <!-- fecha o container -->
-<div class="col-md-2"><br/>
-</div>
+
+</form>
+
+  <!-- fecha o container -->
+
+
+
 
 </body>
 </html>
@@ -60,5 +162,4 @@
   		box-shadow: 0 5px #666;
   		transform: translateY(4px);
 }
-
 </style>

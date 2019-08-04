@@ -1,5 +1,6 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-<nav class="navbar navbar-inverse">
+ <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="index.php">Ative-se </a>
@@ -29,10 +30,24 @@
     </ul>
   </div>
 </nav> 
+
+
+
+
+          <script>
+
+            </script>
+
+  
+
+
+
 <style>
 
-#li{
-  
+
+
+li{
+  color: white;
 }
 
 

@@ -1,134 +1,147 @@
 <?php include "header.php";?>
 <?php include "nav.php";?>
+<?php session_start();?>
 <body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
-<form class="form-horizontal">
-<fieldset>
-<div class="form-group">
-
-<div class="col-md-11 control-label">
+<h4 align="center">Cadastro de pessoa física</h4>
+<div class="col-md-11 control-label" align="right" >
         <p class="help-block"><h11>*</h11>Campo Obrigatório</p>
 </div>
-</div>
-<div class="container" align="center">
-	<h4> Cadastro de pessoa fisica</h4>
-    </div>
-    </br>
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-2 control-label" for="Nome">Nome: <h11>*</h11></label>  
-  <div class="col-md-8">
-  <input id="Nome" name="Nome" placeholder="" class="form-control input-md" required="" type="text">
-  </div>
-</div>
 
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-2 control-label" for="Nome">CPF: <h11>*</h11></label>  
-  <div class="col-md-2">
-  <input id="cpf" name="cpf" placeholder="Apenas números" class="form-control input-md" required="" type="text" maxlength="11" pattern="[0-9]+$">
+
+<div class="container">
+  <form action="cadastroAposentado.php" method="post">
+  <label>Nome: *</label>
+<input class="form-control" type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+<br/>
+  <div class="col-md-6">
+
+  <label>Senha: *</label>
+<input class="form-control" type="text" id="senha" name="senha" placeholder="Digite aqui sua senha para entrar no site" required>
+<br/>
+
+  <label>CPF: *</label>
+<input class="form-control" type="number" id="cpf" name="cpf" placeholder="Apenas números" required>
+<br/>
+
+<label>Data de nascimento: *</label>
+<input class="form-control" type="date" id="nasc" name="dataNasc" placeholder="" required>
+<br/>
+
+<label>Email: *</label>
+<input class="form-control" type="email" id="email" name="email" placeholder="email@email.com" required>
+<br/>
+
+
+<!-- <label>Escolaridade: *</label>
+<select class="form-control" id="escolaridade" name="escolaridade">
+  <option><option>
+  <option value="LE">Leio e escrevo</option>
+  <option value="FI">Ensino fundamental incompleto</option>
+  <option value="FC">Ensino fundamental completo</option>
+  <option value="MI">Ensino médio incompleto</option>
+  <option value="MC">Ensino médio completo</option>
+  <option value="SI">Ensino superior incompleto</option>
+  <option value="SC">Ensino superior completo</option>
+</select> -->
+<br/>
+
   </div>
+
+  <div class="col-md-6">
   
-  <label class="col-md-1 control-label" for="Nome"> Data de Nascimento:<h11>*</h11></label>  
-  <div class="col-md-2">
-  <input id="dtnasc" name="dtnasc" placeholder="DD/MM/AAAA" class="form-control input-md" required="" type="text" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()">
-</div>
+  <label>CEP: *</label>
+<input class="form-control" type="text" id="cep" name="cep" placeholder="Apenas números" required><br/>
 
+<label>Logradouro: *</label>
+<input class="form-control" type="text" id="logra" name="logra" placeholder="" required disabled><br/>
 
-<!-- Prepended text-->
-<div class="form-group">
+<label>N°: *</label>
+<input class="form-control" type="text" id="numero" name="num" placeholder="" required><br/>
+
+<label>Bairro: *</label>
+<input class="form-control" type="text" id="bairro" name="bairro" placeholder="" required disabled><br/>
+
+<label>Cidade: *</label>
+<input class="form-control" type="text" id="cidade" name="cidade" placeholder="" required disabled><br/>
+
+<label>Estado: *</label>
+<select class="form-control" id="uf" name="uf" required disabled>
+      <option></option>
+      		<option value="AC">Acre</option>
+			<option value="AL">Alagoas</option>
+			<option value="AP">Amapá</option>
+			<option value="AM">Amazonas</option>
+			<option value="BA">Bahia</option>
+			<option value="CE">Ceará</option>
+			<option value="DF">Distrito Federal</option>
+			<option value="ES">Espírito Santo</option>
+			<option value="GO">Goiás</option>
+			<option value="MA">Maranhão</option>
+			<option value="MT">Mato Grosso</option>
+			<option value="MS">Mato Grosso do Sul</option>
+			<option value="MG">Minas Gerais</option>
+			<option value="PA">Pará</option>
+			<option value="PB">Paraíba</option>
+			<option value="PR">Paraná</option>
+			<option value="PE">Pernambuco</option>
+			<option value="PI">Piauí</option>
+			<option value="RJ">Rio de Janeiro</option>
+			<option value="RN">Rio Grande do Norte</option>
+			<option value="RS">Rio Grande do Sul</option>
+			<option value="RO">Rondônia</option>
+			<option value="RR">Roraima</option>
+			<option value="SC">Santa Catarina</option>
+			<option value="SP">São Paulo</option>
+			<option value="SE">Sergipe</option>
+      		<option value="TO">Tocantins</option>
+</select><br/>
+
+<script type="text/javascript">
+		$("#cep").focusout(function(){
+			//Início do Comando AJAX
+			$.ajax({
+				//O campo URL diz o caminho de onde virá os dados
+				//É importante concatenar o valor digitado no CEP
+				url: 'https://viacep.com.br/ws/'+$(this).val()+'/json/unicode/',
+				//Aqui você deve preencher o tipo de dados que será lido,
+				//no caso, estamos lendo JSON.
+				dataType: 'json',
+				//SUCESS é referente a função que será executada caso
+				//ele consiga ler a fonte de dados com sucesso.
+				//O parâmetro dentro da função se refere ao nome da variável
+				//que você vai dar para ler esse objeto.
+				success: function(resposta){
+					//Agora basta definir os valores que você deseja preencher
+					//automaticamente nos campos acima.
+					$("#logra").val(resposta.logradouro);
+					$("#bairro").val(resposta.bairro);
+					$("#cidade").val(resposta.localidade);
+					$("#uf").val(resposta.uf);
+					//Vamos incluir para que o Número seja focado automaticamente
+					//melhorando a experiência do usuário
+					$("#numero").focus();
+				}
+			});
+		});
+  </script>
+
   
-</div>
-
-
-<!-- Search input-->
-<div class="form-group">
-  <label class="col-md-2 control-label" for="CEP">CEP <h11>*</h11></label>
-  <div class="col-md-2">
-    <input id="cep" name="cep" placeholder="Apenas números" class="form-control input-md" required="" value="" type="search" maxlength="8" pattern="[0-9]+$">
-  </div>
-  <label class="col-md-2 control-label" for="prependedtext">Email: <h11>*</h11></label>
-  <div class="col-md-3">
-    <div class="input-group">
-      <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-      <input id="prependedtext" name="prependedtext" class="form-control" placeholder="email@email.com" required="" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" >
-    </div>
-  </div>
   
+  </div> <!-- termina o col-md-6 -->
+
+  <div class="salvar" align="center">
+<button class="btn btn-success" id="button1">Salvar</button>
 </div>
 
-<!-- Prepended text-->
-<div class="form-group">
-  <label class="col-md-2 control-label" for="prependedtext">Endereço</label>
-  <div class="col-md-4">
-    <div class="input-group">
-      <span class="input-group-addon">Rua:</span>
-      <input id="rua" name="rua" class="form-control" placeholder="" required="" type="text">
-    </div>
-    
-  </div>
-    <div class="col-md-2">
-    <div class="input-group">
-      <span class="input-group-addon">Nº: <h11>*</h11></span>
-      <input id="numero" name="numero" class="form-control" placeholder="" required=""  type="text">
-    </div>
-    
-  </div>
-  
-  <div class="col-md-3">
-    <div class="input-group">
-      <span class="input-group-addon">Bairro:</span>
-      <input id="bairro" name="bairro" class="form-control" placeholder="" required="" type="text">
-    </div>
-    
-  </div>
-</div>
+</form>
 
-<div class="form-group">
-  <label class="col-md-2 control-label" for="prependedtext"></label>
-  <div class="col-md-4">
-    <div class="input-group">
-      <span class="input-group-addon">Cidade:</span>
-      <input id="cidade" name="cidade" class="form-control" placeholder="" required="" type="text">
-    </div>
-    
-  </div>
-  
-   <div class="col-md-2">
-    <div class="input-group">
-      <span class="input-group-addon">Estado:</span>
-      <input id="estado" name="estado" class="form-control" placeholder="" required="" type="text">
-    </div>
-    
-  </div>
-</div>
+  </div> <!-- fecha o container -->
 
-<div class="form-group">
-    
-  <label class="col-md-2 control-label" for="selectbasic">Escolaridade: <h11>*</h11></label>
-  
-  <div class="col-md-3">
-    <select required id="escolaridade" name="escolaridade" class="form-control">
-    <option value=""></option>
-      <option value="Analfabeto">Analfabeto</option>
-      <option value="Fundamental Incompleto">Fundamental Incompleto</option>
-      <option value="Fundamental Completo">Fundamental Completo</option>
-      <option value="Médio Incompleto">Médio Incompleto</option>
-      <option value="Médio Completo">Médio Completo</option>
-      <option value="Superior Incompleto">Superior Incompleto</option>
-      <option value="Superior Completo">Superior Completo</option>
-    </select>
-  </div>
-
-  <label class="col-md-1 control-label" for="profissao">Experiência Profissional:<h11>*</h11></label>  
-  <div class="col-md-4">
-  <input id="experiencia" name="profissao" type="text" placeholder="" class="form-control input-md" required="">
-  </div>
-</div>
-    <div class="container" align="center">
-    <button class="btn btn-success" id="button1">Salvar</button>
-    </div>
 <style>
+
+
 #button1{
 		padding: 5.2px;
 		
@@ -154,5 +167,11 @@
   		transform: translateY(4px);
 }
 
+label{
+	font-size: 25px;
+}
 
-</style>
+
+
+
+  </style>

@@ -1,31 +1,15 @@
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-
-  <title>Fale conosco</title>
-  <link rel="stylesheet" type="text/css" href="css/styles.css"/>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
+<?php include "header.php";?>
+<?php include "nav.php";?>
 
 <body>
-
-  <?php include "nav.php";?>
-
-
   <!-- INICIO CODIGO FORM -->
-
 <div align="center">
   <h3>Gostaria de nos enviar alguma sugestão, crítica ou tirar alguma duvida? 
     <p>Insira seus dados nos campos abaixo e nos envie!!</h3></p></div>
 
 <div class="container" align="center">
-<div class="col-md-4"></div>
-<div class="col-md-4"><br/>
+<div class="col-md-2"></div>
+<div class="col-md-8"><br/>
     <fieldset class="form-group">
     <legend>Dados pessoais</legend> 
 
@@ -33,9 +17,7 @@
   <input type="text" placeholder=" " required/>
   <label>Nome:</label>
 </div>
-
 <br/>
-
 <div class="label-float">
   <input type="email" placeholder=" " required/>
   <label>E-mail:</label>
@@ -43,7 +25,7 @@
 
 <br>
     <div class="label-float">
-  <input type="number" placeholder=" " required/>
+  <input type="text" placeholder=" " required/>
   <label>Telefone:</label>
 </div>
   
@@ -53,11 +35,71 @@
     
     <button class="btn btn-success" >Enviar</button>
 </div></div>
-<div class="col-md-4" ></div>
+<div class="col-md-2" ></div>
 </div>
 
 <!-- FIM CODIGO FORM -->
 
 </body>
-
 </html>
+
+<style>
+
+.label-float{
+  position: relative;
+  padding-top: 10px;
+}
+
+.label-float input{
+  border: 1px solid gray;
+  border-radius: 5px;
+  outline: none;
+  
+  min-width: 616px;
+  
+   padding: 15px 55px; 
+  font-size: 16px;
+  transition: all .1s linear;
+  -webkit-transition: all .1s linear;
+  -moz-transition: all .1s linear;
+  -webkit-appearance:none;
+}
+
+.label-float input:focus{
+  border: 2px solid #3951b2;
+}
+
+.label-float input::placeholder{
+  color:transparent;
+}
+
+.label-float label{
+  pointer-events: none;
+  position: absolute;
+  top: calc(50% - 8px);
+  left: 70px;
+  transition: all .1s linear;
+  -webkit-transition: all .1s linear;
+  -moz-transition: all .1s linear;
+  background-color: white;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.label-float input:required:invalid + label{
+  color: 3951b2;
+}
+.label-float input:focus:required:invalid{
+  border: 2px solid;
+}
+.label-float input:required:invalid + label:before{
+  content: '';
+}
+.label-float input:focus + label,
+.label-float input:not(:placeholder-shown) + label{
+  font-size: 13px;
+  top: 0;
+  color: #3951b2;
+}
+
+</style>
