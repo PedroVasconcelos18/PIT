@@ -19,8 +19,8 @@
         $conn = new PDO("mysql:host=localhost;dbname=pit", 'root', '');
     
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "INSERT INTO aposentadoautonomo (Id, CNPJ, nome, CEP, telefone, ramoEmpresa, email, senha)
-        VALUES (NULL, '$cnpj', '$nome','$nome','$cep','$telefone','$ramo','$email', MD5('$senha'))";
+        $sql = "INSERT INTO empresa (Id, CNPJ, nome, CEP, telefone, ramoEmpresa, email, senha)
+        VALUES (NULL, '$cnpj', '$nome','$cep','$telefone','$ramo','$email', MD5('$senha'))";
     
         $conn->exec($sql);
     

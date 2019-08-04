@@ -22,7 +22,7 @@
 <br/>
 
   <label>CPF: *</label>
-<input class="form-control" type="number" id="cpf" name="cpf" placeholder="Apenas números" required>
+<input class="form-control" type="text" id="cpf" name="cpf" placeholder="Apenas números" required>
 <br/>
 
 <label>Data de nascimento: *</label>
