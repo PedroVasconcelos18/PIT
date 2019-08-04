@@ -6,8 +6,8 @@
       <a class="navbar-brand" href="index.php">Ative-se </a>
     </div>
     <ul class="nav navbar-nav navbar-right">
-    <?php if (isset($_SESSION['usuario'])){ ?>}
-                    <li><a href="index.php"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+    <?php if (isset($_SESSION['aposentadoautonomo']) || isset($_SESSION['empresa']) ){ ?>}
+                    <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
          <?php } else { ?>
                     <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
                 <?php } ?>

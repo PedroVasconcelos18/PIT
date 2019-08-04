@@ -1,3 +1,15 @@
+<?php 
+// Inicia sessões 
+session_start(); 
+ 
+// Verifica se existe os dados da sessão de login 
+if(!isset($_SESSION["aposentadoautonomo"]) || !isset($_SESSION["empresa"])) 
+{ 
+// Usuário não logado! Redireciona para a página de login 
+header("Location: ../pit/login.php"); 
+exit; 
+} 
+?>
 <?php include "header.php";?>
 <?php require "nav.php"?>
 <body>
