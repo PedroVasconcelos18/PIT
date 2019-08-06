@@ -1,17 +1,16 @@
 <?php
 
 session_start();
-$cpfcnpj = $_POST["cpfcnpj"];
-$senha = $_POST["senha"];
+
 
 
 $con =  new PDO("mysql:host=localhost; dbname=pit","root","");
 
-if(strlen($cpfcnpj) < 12)
+if(strlen($cpfcnpj) < 13)
 {
 
     $sql = $con->prepare("SELECT * FROM aposentadoautonomo WHERE CPF=? AND senha=?");
-    $sql->execute( array($cpfcnpj, md5($senha) ) );
+    $sql->execute( array($_POST['cpfcnpj'], md5($_POST['senha']) ) );
 
     $row = $sql->fetchObject();  // devolve um único registro
 
@@ -28,10 +27,10 @@ else
 
 } 
 
-if (strlen($cpfcnpj) > 12)
+else
 {
     $sql = $con->prepare("SELECT * FROM empresa WHERE CNPJ=? AND senha=?");  
-    $sql->execute( array($cpfcnpj, md5($senha) ) );
+    $sql->execute( array($_POST['cpfcnpj'], md5($_POST['senha']) ) );
 
     $row = $sql->fetchObject();  // devolve um único registro
 

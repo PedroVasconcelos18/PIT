@@ -1,105 +1,100 @@
 <?php include "header.php";?>
 <?php include "nav.php";?>
 <body>
-<div class="container" align="center">
+
 	<br/>
-    <h3>Vagas disponíveis</h3>
+    <h2 align='center'>Vagas disponíveis</h2>
     <br/>
-<div class="col-sm-1">
-
+    <div class="container" align="center">
+        <div class="col-md-4">
+    <div class="card carta" style="width: 18rem;">
+    <a href="cozinha.php" ><img class="card-img-top" src="imagens/cozinha.jpg" alt="Card image cap"></a>
+  <div class="card-body">
+    <p id="cozinha" class="card-text card1">Cozinha</p>
+  </div>
 </div>
-<table class="col-sm-10" id="table1" align="center">
-	
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>Empresa</th>
-                <th>Função</th>
-                <th>Conhecimentos necessários</th>
-                <th>Horario</th>
-                <th>Bolsa</th>
-                <th>Endereço</th>
-                <th>Sexo</th>
-                <th>N° de vagas</th>
-                <th>Benefícios</th>
-                <th>Observações</th>
-                <th>Contato</th>
-                
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>1</td>
-                <td>Imovéis e alugueis</td>
-                <td>Atendente</td>
-                <td>Nenhum</td>
-                <td>12:00 - 18:00</td>
-                <td>1500</td>
-                <td>Rua dos alegres 36</td>
-                <td>Indiferente</td>
-                <td>3</td>
-                <td>V.T, V.A</td>
-                <td>mandar e-mail para email@email.com</td>
-                <td>31956847515</td>
-            </tr>
-            </tbody>
-            <tbody>
-            <tr>
-            <td>2</td>
-                <td>Imovéis e alugueis</td>
-                <td>Atendente</td>
-                <td>Nenhum</td>
-                <td>12:00 - 18:00</td>
-                <td>1500</td>
-                <td>Rua dos alegres 36</td>
-                <td>Indiferente</td>
-                <td>3</td>
-                <td>V.T, V.A</td>
-                <td>mandar e-mail para email@email.com</td>
-                <td>31956847515</td>
-            </tr>
-            </tbody>
-            <tbody>
-            <tr>
-            <td>3</td>
-                <td>Imovéis e alugueis</td>
-                <td>Atendente</td>
-                <td>Nenhum</td>
-                <td>12:00 - 18:00</td>
-                <td>1500</td>
-                <td>Rua dos alegres 36</td>
-                <td>Indiferente</td>
-                <td>3</td>
-                <td>V.T, V.A</td>
-                <td>mandar e-mail para email@email.com</td>
-                <td>31956847515</td>
-            </tr>
-            </tbody>
-            <tbody>
-            <tr>
-            <td>4</td>
-                <td>Imovéis e alugueis</td>
-                <td>Atendente</td>
-                <td>Nenhum</td>
-                <td>12:00 - 18:00</td>
-                <td>1500</td>
-                <td>Rua dos alegres 36</td>
-                <td>Indiferente</td>
-                <td>3</td>
-                <td>V.T, V.A</td>
-                <td>mandar e-mail para email@email.com</td>
-                <td>31956847515</td>
-            </tr>
-            </tbody>
-</table>
-<br/><br/>
-<button class="btn btn-success">Novo</button>
-<button class="btn btn-success">Excluir</button>
+        </div>
 
-<div class="col-sm-1">
+        <div class="col-md-4">
+    <div class="card carta" style="width: 18rem;">
+    <a href="vendas.php" ><img class="card-img-top" src="imagens/vendas.jpg" alt="Card image cap"></a>
+  <div class="card-body">
+    <p id="vendas" class="card-text">Vendas</p>
+  </div>
+</div>
+        </div>
 
+        <div class="col-md-4">
+    <div class="card carta" style="width: 18rem;">
+    <a href="admin.php" ><img class="card-img-top" src="imagens/admin.jpg" alt="Card image cap"></a>
+  <div class="card-body">
+    <p id="admin" class="card-text">Administração</p>
+  </div>
 </div>
+        </div>
+    </div>
+    <br>
+<!-- COMEÇO DA SEGUNDA LINHA DE VAGAS -->
+
+    <div class="container" align="center">
+        <div class="col-md-4">
+    <div class="card carta" style="width: 18rem;">
+    <a href="limpeza.php" ><img class="card-img-top" src="imagens//Limpeza.jpg" alt="Card image cap"></a>
+  <div class="card-body">
+    <p id="limpeza" class="card-text">Limpeza</p>
+  </div>
 </div>
+        </div>
+
+        <div class="col-md-4">
+    <div class="card carta" style="width: 18rem;">
+    <a href="auxili.php" ><img class="card-img-top" src="imagens/auxiliar.jpg" alt="Card image cap"></a>
+  <div class="card-body">
+    <p id="auxili" class="card-text">Auxiliar de <br> produção</p>
+  </div>
+</div>
+        </div>
+
+        <div class="col-md-4">
+    <div class="card carta" style="width: 18rem;">
+    <a href="pedagogia.php" ><img class="card-img-top" src="imagens/Pedagogia.jpg" alt="Card image cap"></a>
+  <div class="card-body">
+    <p id="pedago" class="card-text">Pedagogia</p>
+  </div>
+</div>
+        </div>
+    </div>
+    <br>
+     <!-- COMEÇO DA TERCEIRA LINHA DE VAGAS -->
+
+     <div class="container" align="center">
+        <div class="col-md-4">
+    <div class="card carta" style="width: 18rem;">
+    <a href="coding.php" ><img class="card-img-top" src="imagens/coding.jpg" alt="Card image cap"></a>
+  <div class="card-body">
+    <p id="coding" class="card-text">Programação</p>
+  </div>
+</div>
+        </div>
+
+        <div class="col-md-4 carta">
+    <div class="card carta" style="width: 18rem;">
+    <a href="infra.php" ><img class="card-img-top" src="imagens/infra" alt="Card image cap"></a>
+  <div class="card-body">
+    <p id="infra" class="card-text">Técnico em <br> infraestrutura</p>
+  </div>
+</div>
+        </div>
+
+        <div class="col-md-4">
+    <div class="card carta" style="width: 18rem;">
+  <a href="construcao.php" ><img class="card-img-top" src="imagens/pedreiro.jpg" alt="Card image cap"></a>
+  <div class="card-body">
+    <p id="pedreiro" class="card-text">Construção</p>
+  </div>
+</div>
+        </div>
+    </div>
 </body>
 <br/><br/>
 </html>
@@ -121,6 +116,46 @@ td, th {
 
 tr:nth-child(even) {
   background-color: #dddddd;
+}
+.carta{
+    border: 300px;
+
+}
+
+.card-img-top{
+    height: 300px;
+    width: 300px;
+    border-radius: 15px;
+}
+.card-text{
+    font-size: 34px;
+}
+#cozinha{
+    margin-left: 80px;
+}
+#vendas{
+    margin-left: 80px;
+}
+#admin{
+    margin-left: 47px;
+}
+#limpeza{
+    margin-left: 80px;
+}
+#auxili{
+    
+}
+#pedago{
+    margin-left: 60px;
+}
+#coding{
+    margin-left: 50px;
+}
+#infra{
+    
+}
+#pedreiro{
+    margin-left: 63px;
 }
 </style>
 
