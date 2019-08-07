@@ -3,11 +3,14 @@ session_start();
 if($_SESSION['aposentadoautonomo'])
 {
     unset($_SESSION['aposentadoautonomo']);
+    header("Location: ../pit/index.php");
 }
-if ($_SESSION['empresa'])
+elseif($_SESSION['empresa'])
 {
     unset($_SESSION['empresa']);
+    header("Location: ../pit/index.php");
 }
 
-header("Location: ../pit/index.php");
+
+
 ?>

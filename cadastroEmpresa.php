@@ -2,7 +2,7 @@
 <?php include "nav.php";?>
 <body>
 	
-<h4 align="center"> Cadastro de pessoa juridica</h4>
+<h4 align="center">Cadastro de pessoa juridica</h4>
 
 <div class="col-md-11 control-label" align="right" >
         <p class="help-block"><h11>*</h11>Campo Obrigatório</p>
@@ -140,7 +140,6 @@
 
 	#button1{
 		padding: 5.2px;
-		
 		margin: auto;
 		display: inline-block;
  		padding: 8px 25px;
@@ -162,4 +161,19 @@
   		box-shadow: 0 5px #666;
   		transform: translateY(4px);
 }
+label{
+	font-size: 25px;
+}
+h4{
+	font-size: 32px;
+}
+.help-block{
+	font-size: 32px;
+}
+
+#button1{
+        align:center;
+        padding: 20px 261px;
+        font-size: 32px;
+    }
 </style>

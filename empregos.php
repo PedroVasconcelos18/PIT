@@ -35,7 +35,7 @@
     </div>
     <br>
 <!-- COMEÇO DA SEGUNDA LINHA DE VAGAS -->
-
+<hr>
     <div class="container" align="center">
         <div class="col-md-4">
     <div class="card carta" style="width: 18rem;">
@@ -65,6 +65,8 @@
         </div>
     </div>
     <br>
+
+    <hr>
      <!-- COMEÇO DA TERCEIRA LINHA DE VAGAS -->
 
      <div class="container" align="center">
@@ -126,37 +128,12 @@ tr:nth-child(even) {
     height: 300px;
     width: 300px;
     border-radius: 15px;
+    margin-left: -60px;
 }
 .card-text{
     font-size: 34px;
 }
-#cozinha{
-    margin-left: 80px;
-}
-#vendas{
-    margin-left: 80px;
-}
-#admin{
-    margin-left: 47px;
-}
-#limpeza{
-    margin-left: 80px;
-}
-#auxili{
-    
-}
-#pedago{
-    margin-left: 60px;
-}
-#coding{
-    margin-left: 50px;
-}
-#infra{
-    
-}
-#pedreiro{
-    margin-left: 63px;
-}
+
 </style>
 
 

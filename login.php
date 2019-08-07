@@ -8,7 +8,7 @@
 
 <div class="col-md-4" align="center">
 <form method="post" action="autenticacao.php">
-    <label>Digite seu CPF/ CNPJ:</label><br/>
+    <label>Digite seu CPF / CNPJ:</label><br/>
     <input class="form-control" placeholder="" type="text" id="cpfcnpj" name="cpfcnpj" required><br/>
     
     <label>Digite sua senha:</label><br/>
@@ -33,5 +33,10 @@ p{
     }
     #button1{
         align:center;
+        padding: 20px 261px;
+        font-size: 32px;
     }
+label{
+    font-size: 32px;
+}
 </style>

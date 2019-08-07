@@ -2,11 +2,9 @@
 
 session_start();
 
-
-
 $con =  new PDO("mysql:host=localhost; dbname=pit","root","");
 
-if(strlen($cpfcnpj) < 13)
+if(strlen(trim($_POST['cpfcnpj'])) == 11)
 {
 
     $sql = $con->prepare("SELECT * FROM aposentadoautonomo WHERE CPF=? AND senha=?");
@@ -26,8 +24,7 @@ else
 }
 
 } 
-
-else
+ else if (strlen(trim($_POST['cpfcnpj'])) == 18)
 {
     $sql = $con->prepare("SELECT * FROM empresa WHERE CNPJ=? AND senha=?");  
     $sql->execute( array($_POST['cpfcnpj'], md5($_POST['senha']) ) );
@@ -45,5 +42,4 @@ else
     header("Location: ../pit/login.php");
 }
 }
-
 ?>

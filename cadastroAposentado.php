@@ -34,8 +34,8 @@
         <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js\"></script>
     </head>
     <div class='container'>
-    <br />
-    <div align='center'>Novo usuário cadastrado com sucesso</div>
+    <br><br><br>
+    <h1><div align='center'>Novo usuário cadastrado com sucesso</div><h1/>
     
     <form action='login.php'>
     <div class='butao' align='center'>
