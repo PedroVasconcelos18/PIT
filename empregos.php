@@ -2,8 +2,14 @@
 <?php include "nav.php";?>
 <body>
 
-	<br/>
-    <h2 align='center'>Vagas disponíveis</h2>
+  <br/>
+  <div align='center'>
+    <h2>Vagas disponíveis </h2>
+    <form action="cadastroVaga.php">
+    <button class="btn btn-success">Cadastrar nova vaga</button>
+    </form>
+    
+</div>
     <br/>
     <div class="container" align="center">
         <div class="col-md-4">

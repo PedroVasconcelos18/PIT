@@ -11,10 +11,11 @@
 </div>
 <table class="col-sm-10" id="table1" align="center">
 	
-<?php $sql = $conn->prepare("SELECT * FROM ver_vagas;");
+<?php $sql = $conn->prepare("SELECT * FROM ver_vagas_limitadas WHERE categoria = 'Prog';");
 $sql->execute();
 $rows = $sql->fetchAll(PDO::FETCH_CLASS);
-echo "<table class='table table-striped'>";
+echo "<form action='vagacompleta.php'>
+<table class='table table-striped'>";
     foreach ($rows as $row) {
         echo "      <tr>  
         <tr>
@@ -23,15 +24,18 @@ echo "<table class='table table-striped'>";
         <th>Função a ser exercida:</th>
         <th>Endereço:</th>
         <th>N° de vagas:</th>
-        <th>Conhecimentos Necessários:</th>      
+        <th>Sexo:</th>   
+        <th>Duracao vaga:</th>     
                 </tr>     
-        <td>  $row->ID</td>               
-        <td>  $row->Nome_da_empresa</td>  
-        <td>  $row->Funcao_a_ser_exercida</td> 
-        <td>  $row->Endereco</td>  
-        <td>  $row->N_de_vagas</td> 
-        <td>  $row->Conhecimentos_necessarios</td>
+        <td id='id' name='id'>  $row->ID</td>               
+        <td>  $row->nomeEmpresa</td>  
+        <td>  $row->funcaoExercida</td> 
+        <td>  $row->endereco</td>  
+        <td>  $row->numeroVagas</td> 
+        <td>  $row->Sexo</td>
+        <td>  $row->DuracaoVaga</td>
         <td>  <button href=''class='btn btn-info'>Ver mais</button> </td>
+        </form>
         ";
     }
     echo "</table>";
@@ -43,10 +47,6 @@ echo "<table class='table table-striped'>";
 
 </div>
 <br>
-<div class="container" align="center">
-<button href="cadastroVaga.php" class="btn btn-success">Novo</button>
-<button class="btn btn-success">Excluir</button>
-</div>
 </body>
 <br/><br/>
 </html>

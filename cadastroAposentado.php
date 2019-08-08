@@ -23,34 +23,15 @@
     
         $conn->exec($sql);
     
-        echo "
-    <html lang=\"pt\">
-    <head>
-        <title>Ative-se</title>
-        <meta charset=\"utf-8\">
-        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
-        <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css\">
-        <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>
-        <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js\"></script>
-    </head>
-    <div class='container'>
-    <br><br><br>
-    <h1><div align='center'>Novo usuário cadastrado com sucesso</div><h1/>
-    
-    <form action='login.php'>
-    <div class='butao' align='center'>
-                <button class='btn btn-primary btn-md butao' type='submit'>Clique aqui para efetuar login</button>
-                </div>
-    </div>
-    
         
-    </form>";
     
+        header("Location: ../pit/curriculo.php");
     
         }
     catch(PDOException $e)
         {
         echo $sql . "<br>" . $e->getMessage();
+       
         }
     
     $conn = null;

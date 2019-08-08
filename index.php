@@ -1,39 +1,47 @@
-<?php 
-// Inicia sessões 
-session_start(); 
- 
-/* Verifica se existe os dados da sessão de login 
-//if(!isset($_SESSION["aposentadoautonomo"]) || !isset($_SESSION["empresa"])) 
-{ 
-// Usuário não logado! Redireciona para a página de login 
-header("Location: ../pit/index.php");
-exit;
 
-}
-*/ 
-?>
 <?php include "header.php";?>
 <?php require "nav.php"?>
 <body>
-<div class="col-sm-4"></div>
-<div class="col-sm-4">
-<h4 align="center">Bem-vindo a plataforma <br/> do Ative-se</h4>
-<br/>
-<p align="center"> Quem somos? </p>
-<br/>
-<p align="center"> Somos uma startup voltada para os aposentados e para os autônomos, 
-    onde temos como objetivo auxiliar os aposentados a voltaraem ao mercado de trabalho 
-    e incentivar os autonômos a venderem suas mercadorias em nossa comunidade.  </p>
-<br/>
+<div align='center' class="container">
+   <h1> Ative-se</h1>
 </div>
-
-<div class="col-sm-4"></div>
-<hr>
+<br><br><br>
 <div class="container">
-<div class="col-sm-4"></div>
-<div class="col-sm-4">
-<p align="center">Postagem   </p>
-<br/>
+    <div class="col-md-6">  
+    <img class="foto" src="imagens/idosoIndex 1.jpg">
+    </div>
+    <div class="col-md-6">
+    <h3 align="center"><br><br>Aqui você encontra uma maneira fácil de atingir seus objetivos e voltar a crescer no mercado de trabalho, seja bem vindo</h3>
+    </div>
+
+    
+
 </div>
 
-<div class="col-sm-4"></div></div>
+<div class="container">
+    
+
+    <div class="col-md-6">
+    <h3 align="center"><br><br><br>“Com uma plataforma simples e um fácil relacionamento com empresas e negócios, aqui sua experiência vale muito. Para saber mais cadastre-se”</h3>
+    </div>
+    <div class="col-md-6">
+    <img class="foto" src="imagens/autonomo.jpg">
+    </div>
+
+</div>
+</div>
+</body>
+
+
+<style>
+
+.foto{
+    height: 250px;
+    width: 550px;
+    border-radius: 20px;
+}
+
+body{  
+
+} 
+</style>
