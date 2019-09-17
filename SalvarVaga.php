@@ -1,38 +1,43 @@
 <?php 
 
-    session_start();
+
+if (!isset($_SESSION)) {//Verificar se a sessão não já está aberta.
+  session_start();
+  
+}
 
 
-    $nome = $_POST["nome"];
-    $end = $_POST["end"];
-    $sexo = $_POST["sexo"];
-    $func = $_POST["func"];
-    $bolsa = $_POST["bolsa"];
-    $benefi = $_POST["benefi"];
-    $CN = $_POST["CN"];
-    $horaT = $_POST["horaT"];
-    $obs = $_POST["obs"];
-    $durac = $_POST["durac"];
-    $catego = $_POST["catego"];
-    $vagas = $_POST["vagas"];
-    $contato = $_POST["contato"];
-    $Empresa_ID = $_SESSION["Empresa_ID"];
- 
+$nome = $_POST["nome"];
+$end = $_POST["end"];
+$sexo = $_POST["sexo"];
+$func = $_POST["func"];
+$bolsa = $_POST["bolsa"];
+$benefi = $_POST["benefi"];
+$CN = $_POST["CN"];
+$horaT = $_POST["horaT"];
+$obs = $_POST["obs"];
+$durac = $_POST["durac"];
+$catego = $_POST["catego"];
+$vagas = $_POST["vagas"];
+$contato = $_POST["contato"];
+$idEmpresa = $_SESSION['idEmpresa'];
+    
   
       
     try {
         $conn = new PDO("mysql:host=localhost;dbname=pit", 'root', '');
     
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "INSERT INTO aposentadoautonomo (Id, numeroVagas, endereco, Sexo, valorBolsa, Contato, conhecimentosNecessarios, Beneficios, HorarioTrabalho, nomeEmpresa, funcaoExercida, DuracaoVaga, categoria, Empresa_ID)
-        VALUES (NULL, '$vagas', '$end','$sexo','$bolsa','$bolsa', '$contato', '$CN', '$benefi', '$horaT', '$nome', '$func', '$durac', '$catego', '$Empresa_ID')";
+        $sql = "INSERT INTO vagas (ID, numeroVagas, endereco, Sexo, valorBolsa, Contato, conhecimentosNecessarios, 
+        Beneficios, Observacoes, HorarioTrabalho, nomeEmpresa, funcaoExercida, DuracaoVaga, categoria, Empresa_ID)
+        VALUES (NULL, '$vagas', '$end','$sexo','$bolsa', '$contato', '$CN', '$benefi','$obs','$horaT', '$nome', '$func', '$durac', '$catego','$idEmpresa')";
     
         $conn->exec($sql);
     
         
     
         echo "
-        <html lang=\"pt\">
+        <html lang=\'pt\'>
         <head>
             <title>Ative-se</title>
             <meta charset=\"utf-8\">
@@ -43,9 +48,9 @@
         </head>
         <div class='container'>
         <br />
-        <div align='center'>Nova vaga cadastrada com sucesso</div>
+        <div align='center'><h1>Nova vaga cadastrada com sucesso</h1></div>
         
-        <form action='empregos.php'>
+        <form action='../pit/empregos.php'>
         <div class='butao' align='center'>
                     <button class='btn btn-primary btn-md butao' type='submit'>Clique aqui para ver as vagas</button>
                     </div>

@@ -1,45 +1,56 @@
 <?php
 
-session_start();
+if (!isset($_SESSION)) {//Verificar se a sessão não já está aberta.
+  session_start();
+}
 
 $con =  new PDO("mysql:host=localhost; dbname=pit","root","");
 
-if(strlen(trim($_POST['cpfcnpj'])) == 11)
+$cpfcnpj = $_POST['cpfcnpj'];
+
+if(strlen(trim($_POST['cpfcnpj'])) == 11) // login cpf
 {
 
     $sql = $con->prepare("SELECT * FROM aposentadoautonomo WHERE CPF=? AND senha=?");
     $sql->execute( array($_POST['cpfcnpj'], md5($_POST['senha']) ) );
-
     $row = $sql->fetchObject();  // devolve um único registro
+    // $id = $con->prepare("SELECT ID FROM aposentadoautonomo where CPF=$cpfcnpj");
+    $_SESSION['idAposentado'] = $row->ID; //  atribui o objeto ID do row a uma variavel
+   
 
-// Se o usuário foi localizado
-if ($row)
+
+
+if ($row) // Se o usuário foi localizado
 {
-    $_SESSION['aposentadoautonomo'] = $row;
-    header("Location: ../pit/index.php");
+    // var_dump($row); die(); // Verifica o que o objeto row tem dentro
+    $_SESSION['aposentadoautonomo'] = $row->CPF; // depois atribui ele a uma variavel
+    header("Location: index.php");
 }
 else
 {
-    header("Location: ../pit/login.php");
+    header("Location: login.php");
 }
 
 } 
- else if (strlen(trim($_POST['cpfcnpj'])) == 18)
+ else if (strlen(trim($_POST['cpfcnpj'])) == 18) // login cnpj
 {
     $sql = $con->prepare("SELECT * FROM empresa WHERE CNPJ=? AND senha=?");  
     $sql->execute( array($_POST['cpfcnpj'], md5($_POST['senha']) ) );
-
     $row = $sql->fetchObject();  // devolve um único registro
+    // $id = $con->prepare("SELECT ID FROM empresa where CNPJ=$cpfcnpj");
+    $_SESSION['idEmpresa'] = $row->ID;
 
-// Se o usuário foi localizado
-if ($row)
+      
+
+if ($row) // Se o usuário foi localizado
 {
-    $_SESSION['empresa'] = $row;
-    header("Location: ../pit/index.php");
+   
+    $_SESSION['empresa'] = $row->CNPJ;
+    header("Location: index.php");
 }
 else
 {
-    header("Location: ../pit/login.php");
+    header("Location: login.php");
 }
 }
 ?>

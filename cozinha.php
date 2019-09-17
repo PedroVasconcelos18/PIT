@@ -11,13 +11,13 @@
 </div>
 <table class="col-sm-10" id="table1" align="center">
 	
-<?php $sql = $conn->prepare("SELECT * FROM ver_vagas_limitadas WHERE categoria VALUE Coz;");
+<?php $sql = $conn->prepare("SELECT * FROM vagas GROUP BY categoria = 'Coz';");
 $sql->execute();
 $rows = $sql->fetchAll(PDO::FETCH_CLASS);
-echo "<form action='vagacompleta.php'>
+echo "
 <table class='table table-striped'>";
     foreach ($rows as $row) {
-        echo "      <tr>  
+        echo "    
         <tr>
         <th>ID</th>
         <th>Nome da empresa:</th>
@@ -26,8 +26,8 @@ echo "<form action='vagacompleta.php'>
         <th>N° de vagas:</th>
         <th>Sexo:</th>   
         <th>Duracao vaga:</th>     
-                </tr>     
-        <td id='id' name='id'>  $row->ID</td>               
+                </tr> 
+        <td id='id' name='id'> $row->ID</td>               
         <td>  $row->nomeEmpresa</td>  
         <td>  $row->funcaoExercida</td> 
         <td>  $row->endereco</td>  
@@ -37,8 +37,10 @@ echo "<form action='vagacompleta.php'>
         <td>  <button href=''class='btn btn-info'>Ver mais</button> </td>
         </form>
         ";
+        
     }
-    echo "</table>";
+    echo "</table><br>";
+
     ?>
 <br/><br/>
 

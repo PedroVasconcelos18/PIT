@@ -1,5 +1,9 @@
 <?php
-session_start();
+
+
+if (!isset($_SESSION)) {//Verificar se a sessão não já está aberta.
+    session_start();
+  }
 
 
     $formacad = $_POST["formacad"];
@@ -7,21 +11,17 @@ session_start();
     $formcomp = $_POST["formcomp"];
     $expp = $_POST["exppro"];
     $phone = $_POST["phone"];
-    $id_aposentado = $_SESSION["ID"];
+    $id_aposentado = $_SESSION['idvovo'];
    
-
- 
 
 
     try {
-        $conn = new PDO("mysql:host=localhost;dbname=pit", 'root', '');
+        $con = new PDO("mysql:host=localhost;dbname=pit", 'root', '');
 
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "INSERT INTO curriculo (Id, expProfssi, resumoHabili, formAcadem, formCompl, telefone, AposentadoAutonomo_ID)
-        VALUES (NULL, '$expp', '$reshab','$formacad','$formcomp','$phone','$id_aposentado'";
-
-        $conn->exec($sql);
-
+        VALUES (NULL, '$expp', '$reshab','$formacad','$formcomp','$phone','$id_aposentado')";
+        $con->exec($sql);
         echo "
     <html lang='pt'>
     <head>
@@ -45,6 +45,7 @@ session_start();
 
     </form>";
 
+           
 
         }
     catch(PDOException $e)
@@ -53,4 +54,7 @@ session_start();
         }
 
     $conn = null;
+
+
+    
     ?>

@@ -11,13 +11,13 @@
 </div>
 <table class="col-sm-10" id="table1" align="center">
 	
-<?php $sql = $conn->prepare("SELECT * FROM ver_vagas_limitadas WHERE categoria = 'Construc';");
+<?php $sql = $conn->prepare("SELECT * FROM vagas WHERE categoria = 'Construc';");
 $sql->execute();
 $rows = $sql->fetchAll(PDO::FETCH_CLASS);
-echo "<form action='vagacompleta.php'>
+echo "
 <table class='table table-striped'>";
     foreach ($rows as $row) {
-        echo "      <tr>  
+        echo "       
         <tr>
         <th>ID</th>
         <th>Nome da empresa:</th>

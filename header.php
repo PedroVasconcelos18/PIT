@@ -1,6 +1,10 @@
 <?php
 
-session_start();
+if (!isset($_SESSION)) {//Verificar se a sessão não já está aberta.
+  session_start();
+}
+
+
 
 ?>
 <!DOCTYPE html>
@@ -16,5 +20,6 @@ session_start();
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   
 </head>

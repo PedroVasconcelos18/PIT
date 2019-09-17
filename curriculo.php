@@ -23,15 +23,6 @@
 
 	<label>Telefone: *</label>
 	<input class="form-control" placeholder="Digite seu telefone" type="tel" id="phone" name="phone" required><br/>
-
-	
-
-
-	
-
-
-
-	
 </div>
 
 <div class="col-md-6 text2">
@@ -40,14 +31,7 @@
 	<textarea class="form-control" rows="5" placeholder="Coloque as funçoes já exercidas por você" type="text"  id="formcomp" name="formcomp" required> </textarea> 
 
 <br><label>Experiencia Profissional *</label>
-	<textarea class="form-control" rows="5" placeholder="Coloque as funçoes já exercidas por você" type="text"  id="exppro" name="exppro" required> </textarea> 
-
-
-
-
-	
- 
-
+	<textarea class="form-control" rows="5" placeholder="Coloque as funçoes já exercidas por você" type="text"  id="exppro" name="exppro" required> </textarea>
 </div>
 </div> <br>
 <div class="salvar" align="center">
@@ -57,12 +41,6 @@
 </div>
 
 </form>
-
-  
-
-
-
-
 </body>
 </html>
 <style>

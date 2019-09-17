@@ -23,11 +23,12 @@
     
         $conn->exec($sql);
     
+        $_SESSION['idvovo'] = $conn->lastInsertId();
         
-    
-        header("Location: ../pit/curriculo.php");
+        header("Location: curriculo.php");
     
         }
+        
     catch(PDOException $e)
         {
         echo $sql . "<br>" . $e->getMessage();

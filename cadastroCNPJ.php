@@ -1,6 +1,9 @@
 <?php 
 
-    session_start();
+if (!isset($_SESSION)) 
+{                       //Verificar se a sessão não já está aberta.
+session_start();
+}
 
 
     $cnpj = $_POST["cnpj"];

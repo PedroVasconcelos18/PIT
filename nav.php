@@ -19,14 +19,18 @@
       <li ><a class="textonav" href="Blog.php">Comunidade</a></li>
       <li ><a class="textonav" href="contato.php">Contato</a></li>
       <li ><a class="textonav" href="empregos.php">Vagas disponíveis</a></li>
-      <li class="dropdown">
+      
+       <?php if (isset($_SESSION['aposentadoautonomo']) || isset($_SESSION['empresa']) ) {?>
+        
+       <?php } else {?>
+        <li class="dropdown">
         <a class="textonav" class="dropdown-toggle" data-toggle="dropdown" style="margin-top: 5px;">Cadastrar
         <span class="caret"></span></a>
-        <ul class="dropdown-menu">
+<ul class="dropdown-menu"> 
           <li class="textonav"><a class="textonav" href="cadastroEmpresa.php">Cadastro de Pessoa Juridica</a></li>
           <li class="textonav"><a class="textonav" href="cadastroPessoa.php">Cadastro de Pessoa fisica</a></li>
           </ul>
-          
+       <?php } ?>
         </ul>
       </li>      
     </ul>

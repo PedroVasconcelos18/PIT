@@ -2,12 +2,18 @@
 <?php include "nav.php";?>
 <body>
 
-  <br/>
-  <div align='center'>
+  <br/> <div align='center'>
     <h2>Vagas disponíveis </h2>
+  <?php if (isset($_SESSION['empresa']) == true){ ?>
+    <div align='center'>
     <form action="cadastroVaga.php">
     <button class="btn btn-success">Cadastrar nova vaga</button>
-    </form>
+  </div>
+</form>
+  <?php } else {
+
+  } ?>
+    
     
 </div>
     <br/>

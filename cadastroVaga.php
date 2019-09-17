@@ -6,7 +6,7 @@
         <p class="help-block"><h11>*</h11>Campo Obrigatório</p>
 </div>
 <div class="container">
-  <form action="cadastroAposentado.php" method="post">
+  <form action="salvarVaga.php" method="post">
   <label>Nome da empresa: *</label>
 <input class="form-control" type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
 <br/>
@@ -81,7 +81,7 @@
 <input class="form-control" type="text" id="contato" name="contato" placeholder="" required>
 <br/>
   </div>
-</form action="SalvarVaga.php">
+
 <div class="salvar" align="center">
 <button class="btn btn-success butao1" id="button1">Salvar</button>
 </div>
