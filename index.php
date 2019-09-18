@@ -1,9 +1,4 @@
 <?php include "header.php";?>
-<?php 
-
-
-?>
-
 <?php require "nav.php"?>
 <body>
 <div align='center' class="container">

@@ -11,9 +11,10 @@
 </div>
 <table class="col-sm-10" id="table1" align="center">
 	
-<?php $sql = $conn->prepare("SELECT * FROM vagas GROUP BY categoria = 'Prog';");
+<?php $sql = $conn->prepare("SELECT * FROM vagas WHERE categoria = 'Prog';");
 $sql->execute();
 $rows = $sql->fetchAll(PDO::FETCH_CLASS);
+// var_dump($row); die();
 echo "
 <table class='table table-striped'>";
     foreach ($rows as $row) {

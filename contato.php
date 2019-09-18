@@ -31,7 +31,7 @@
   
    <br> <div class="form-group">
     <p><h4>Digite aqui seu comentário:</h4></p><br/>
-    <textarea class="label-float" rows="5" cols="35" placeholder="" required></textarea></div>
+    <textarea class="label-float" rows="5" cols="35" placeholder="" style="margin: 0px; height: 160px; width: 614px"; required></textarea></div>
     
     <button class="btn btn-success" >Enviar</button>
 </div></div>

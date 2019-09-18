@@ -11,7 +11,7 @@ if (!isset($_SESSION)) {//Verificar se a sessão não já está aberta.
     $formcomp = $_POST["formcomp"];
     $expp = $_POST["exppro"];
     $phone = $_POST["phone"];
-    $id_aposentado = $_SESSION['idvovo'];
+    $id_aposentado = $_SESSION['idvovo']; // recupera o $_SESSION['idnovo'] da página de curriculo, através do LastId que se encontra no cadastroaposentado.phpa
    
 
 
