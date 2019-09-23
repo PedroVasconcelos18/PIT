@@ -13,6 +13,11 @@ elseif($_SESSION['empresa'])
     unset($_SESSION['empresa']);
     header("Location: index.php");
 }
+elseif($_SESSION['admin'])
+{
+    unset($_SESSION['admin']);
+    header("Location: index.php");
+}
 
 
 

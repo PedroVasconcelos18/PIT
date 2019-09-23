@@ -1,9 +1,22 @@
-<?php include "header.php";?>
+ <?php include "header.php";?>
 <?php include "nav.php";?>
+<div class="container" align="center">
+    <br/>
+ <h1> Olá, está parte está em desenvolvimento e será lançada em breve, por favor aguarde. Desculpe o transtorno!!
+<br><br><br>
+ <img class="imagem" src="imagens/alerta">
+</div>
+
+<!--
+
+
+
 <body>
 
 <div class="container">
-	<br/>
+    <br/>
+    
+
 <p>Algumas ofertas de trabalho:</p>
 <table class="col-sm-2" id="table1" align="center">
 	
@@ -103,15 +116,15 @@
     
     
     <div class="col-sm-2">
-    <?php if (isset($_SESSION['usuario'])){ ?>}
+     <?php// if (isset($_SESSION['usuario'])){ ?>}
                   
-         <?php } else { ?>
-            <button class="btn btn-success">Nova postagem</button>
+         <?php //} else { ?> -->
+            <!-- <button class="btn btn-success">Nova postagem</button>
             <br><br>
             <button class="btn btn-default">Editar postagem</button>
             <br><br>
             <button class="btn btn-danger">Excluir postagem</button>
-                <?php } ?>
+                <?php //} ?> -->
 
 </div>
 </div>
@@ -155,6 +168,10 @@ td, th {
 
 tr:nth-child(even) {
   background-color: #dddddd;
+}
+.imagem{
+    height: 650px;
+        width: 740px;
 }
 </style>
 

@@ -1,9 +1,11 @@
 <?php include "header.php";?>
 <?php include "nav.php";?>
+
 <body>
 
   <br/> <div align='center'>
     <h2>Vagas disponíveis </h2>
+
   <?php if (isset($_SESSION['empresa']) == true){ ?>
     <div align='center'>
     <form action="cadastroVaga.php">
@@ -144,6 +146,9 @@ tr:nth-child(even) {
 }
 .card-text{
     font-size: 34px;
+}
+#pinicial{
+ color: #ff4d4d;
 }
 
 </style>

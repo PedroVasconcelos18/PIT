@@ -7,7 +7,7 @@
       <a class="navbar-brand" href="index.php"> Ative-se  </a>
     </div>
     <ul class="nav navbar-nav navbar-right">
-    <?php if (isset($_SESSION['aposentadoautonomo']) || isset($_SESSION['empresa']) ){ ?>
+    <?php if (isset($_SESSION['aposentadoautonomo']) || isset($_SESSION['empresa']) || isset($_SESSION['admin'])){ ?>
 
                     <li ><a class="textonav" href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Sair</a></li>
          <?php } else { ?>
@@ -16,11 +16,11 @@
           </ul>
     <ul class="nav navbar-nav">
       <li ><a class="textonav" href="index.php">Página Inicial</a></li>
-      <li ><a class="textonav" href="Blog.php">Comunidade</a></li>
+     <!-- <li ><a class="textonav" href="Blog.php">Comunidade</a></li> -->
       <li ><a class="textonav" href="contato.php">Contato</a></li>
       <li ><a class="textonav" href="empregos.php">Vagas disponíveis</a></li>
       
-       <?php if (isset($_SESSION['aposentadoautonomo']) || isset($_SESSION['empresa']) ) {?>
+       <?php if (isset($_SESSION['aposentadoautonomo']) || isset($_SESSION['empresa']) || isset($_SESSION['admin'])) {?>
         
        <?php } else {?>
         <li class="dropdown">

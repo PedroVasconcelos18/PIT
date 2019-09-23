@@ -37,7 +37,6 @@ else
     $sql = $con->prepare("SELECT * FROM empresa WHERE CNPJ=? AND senha=?");  
     $sql->execute( array($_POST['cpfcnpj'], md5($_POST['senha']) ) );
     $row = $sql->fetchObject();  // devolve um único registro
-    // $id = $con->prepare("SELECT ID FROM empresa where CNPJ=$cpfcnpj");
     $_SESSION['idEmpresa'] = $row->ID;
 
       
@@ -53,4 +52,20 @@ else
     header("Location: login.php");
 }
 }
+else if ((trim($_POST['cpfcnpj'])) == 'admin'){
+    $sql = $con->prepare("SELECT * FROM adminn WHERE nome=? AND senha=?");  
+    $sql->execute( array($_POST['cpfcnpj'], md5($_POST['senha']) ) );
+    $row = $sql->fetchObject();  // devolve um único registro
+    $_SESSION['idAdmin'] = $row->ID;
+}
+if ($row) // Se o usuário foi localizado
+{
+    $_SESSION['admin'] = $row->nome;
+    header("Location: index.php");
+}
+else
+{
+    header("Location: login.php");
+}
+
 ?>

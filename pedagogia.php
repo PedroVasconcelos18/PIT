@@ -6,7 +6,7 @@
 	
    <br/> <h3>Vagas disponíveis</h3><br/>
     
-<div class="col-sm-1">
+<div class="col-sm-1" id="id">
 
 </div>
 <table class="col-sm-10" id="table1" align="center">
@@ -14,31 +14,35 @@
 <?php $sql = $conn->prepare("SELECT * FROM vagas WHERE categoria = 'Pedg';");
 $sql->execute();
 $rows = $sql->fetchAll(PDO::FETCH_CLASS);
+// var_dump($rows); die();
 echo "
 <table class='table table-striped'>";
     foreach ($rows as $row) {
-        echo "       
+      
+        echo "    
+       
         <tr>
         <th>ID</th>
         <th>Nome da empresa:</th>
         <th>Função a ser exercida:</th>
-        <th>Endereço:</th>
         <th>N° de vagas:</th>
         <th>Sexo:</th>   
         <th>Duracao vaga:</th>     
-                </tr>     
-        <td id='id' name='id'>  $row->ID</td>               
+        </tr> 
+
+        <td>  $row->ID</td>               
         <td>  $row->nomeEmpresa</td>  
-        <td>  $row->funcaoExercida</td> 
-        <td>  $row->endereco</td>  
+        <td>  $row->funcaoExercida</td>   
         <td>  $row->numeroVagas</td> 
         <td>  $row->Sexo</td>
         <td>  $row->DuracaoVaga</td>
-        <td>  <button href=''class='btn btn-info'>Ver mais</button> </td>
-        </form>
+        <td>  <a class='btn btn-primary' href='./vagacompleta.php?id=$row->ID'>Ver mais</a> 
+        </td>
         ";
+        
     }
-    echo "</table>";
+    echo "</table><br>";
+
     ?>
 <br/><br/>
 

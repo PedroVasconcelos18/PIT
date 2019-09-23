@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 17-Set-2019 às 22:41
+-- Generation Time: 19-Set-2019 às 00:14
 -- Versão do servidor: 5.7.26
 -- versão do PHP: 7.2.18
 
@@ -38,6 +38,7 @@ CREATE TABLE IF NOT EXISTS `aposentadoautonomo` (
   `Email` varchar(45) NOT NULL,
   `senha` varchar(50) NOT NULL,
   `numero` varchar(5) NOT NULL,
+  `tipo_usuario` int(11) NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
@@ -45,11 +46,11 @@ CREATE TABLE IF NOT EXISTS `aposentadoautonomo` (
 -- Extraindo dados da tabela `aposentadoautonomo`
 --
 
-INSERT INTO `aposentadoautonomo` (`ID`, `CPF`, `dataNasc`, `Nome`, `CEP`, `Email`, `senha`, `numero`) VALUES
-(2, '22222222222', '2000-08-02', 'Roger', '31080150', 'pedro@pedro.com', 'e10adc3949ba59abbe56e057f20f883e', '703'),
-(3, '11111111111', '1988-09-22', 'teste', '31080-150', 'pedrohvss15@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '123'),
-(4, '11204967644', '2000-08-02', 'Pedro Henrique Vasconcelos ', '31080150', 'pedrohvss15@gmail.com', '202cb962ac59075b964b07152d234b70', '703'),
-(5, '11204967644', '2000-08-02', 'Pedro Henrique Vasconcelos ', '31080150', 'pedrohvss15@gmail.com', '0684e0571f251647d0afdf3ee5194b98', '703');
+INSERT INTO `aposentadoautonomo` (`ID`, `CPF`, `dataNasc`, `Nome`, `CEP`, `Email`, `senha`, `numero`, `tipo_usuario`) VALUES
+(2, '22222222222', '2000-08-02', 'Roger', '31080150', 'pedro@pedro.com', 'e10adc3949ba59abbe56e057f20f883e', '703', 0),
+(3, '11111111111', '1988-09-22', 'teste', '31080-150', 'pedrohvss15@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '123', 0),
+(4, '11204967644', '2000-08-02', 'Pedro Henrique Vasconcelos ', '31080150', 'pedrohvss15@gmail.com', '202cb962ac59075b964b07152d234b70', '703', 0),
+(5, '11204967644', '2000-08-02', 'Pedro Henrique Vasconcelos ', '31080150', 'pedrohvss15@gmail.com', '0684e0571f251647d0afdf3ee5194b98', '703', 0);
 
 -- --------------------------------------------------------
 
@@ -101,15 +102,16 @@ CREATE TABLE IF NOT EXISTS `empresa` (
   `ramoEmpresa` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
   `senha` varchar(50) NOT NULL,
+  `tipo_usuario` int(11) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `empresa`
 --
 
-INSERT INTO `empresa` (`ID`, `CNPJ`, `nome`, `CEP`, `telefone`, `ramoEmpresa`, `email`, `senha`) VALUES
-(1, '87.286.520/0001-90', 'Pedro Henrique Vasconcelos ', '31080150', '31995621858', 'Vendas', 'pedrohvss15@gmail.com', '202cb962ac59075b964b07152d234b70');
+INSERT INTO `empresa` (`ID`, `CNPJ`, `nome`, `CEP`, `telefone`, `ramoEmpresa`, `email`, `senha`, `tipo_usuario`) VALUES
+(2, '87.286.520/0001-92', 'Pedro Henrique Vasconcelos ', '31080150', '31995621858', 'Vendas', 'pedrohvss15@gmail.com', '202cb962ac59075b964b07152d234b70', 1);
 
 -- --------------------------------------------------------
 
@@ -170,14 +172,7 @@ CREATE TABLE IF NOT EXISTS `vagas` (
   `Empresa_ID` int(11) NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `fk_Vagas_Empresa_idx` (`Empresa_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-
---
--- Extraindo dados da tabela `vagas`
---
-
-INSERT INTO `vagas` (`ID`, `numeroVagas`, `endereco`, `Sexo`, `valorBolsa`, `Contato`, `conhecimentosNecessarios`, `Beneficios`, `Observacoes`, `HorarioTrabalho`, `nomeEmpresa`, `funcaoExercida`, `DuracaoVaga`, `categoria`, `Empresa_ID`) VALUES
-(1, 1, 'Rua cassiterita ', 'I', 2500, '31995621858', 'Saber dirigir', 'Vale-transporte, vale aliemntaÃ§Ã£o', 'Preciso de alguÃ©m experiente no assunto', '12:00 atÃ© as 22:00', 'Corretora Motors', 'Motorista', '3 anos', 'Ven', 1);
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Constraints for dumped tables
