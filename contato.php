@@ -1,8 +1,11 @@
 <?php include "header.php";?>
 <?php include "nav.php";?>
 
+
+  
 <body>
   <!-- INICIO CODIGO FORM -->
+  <form method="POST" action="enviar.php">
 <div align="center">
   <h3>Gostaria de nos enviar alguma sugestão, crítica ou tirar alguma duvida? 
     <p>Insira seus dados nos campos abaixo e nos envie!!</h3></p></div>
@@ -14,29 +17,29 @@
     <legend>Dados pessoais</legend> 
 
 <div class="label-float">
-  <input type="text" placeholder=" " required/>
+  <input name="nome" id="nome" type="text" placeholder=" " required/>
   <label>Nome:</label>
 </div>
 <br/>
 <div class="label-float">
-  <input type="email" placeholder=" " required/>
+  <input name="email" id="email" type="email" placeholder=" " required/>
   <label>E-mail:</label>
 </div>
 
 <br>
     <div class="label-float">
-  <input type="text" placeholder=" " required/>
+  <input name="telefone" id="telefone"  type="text" placeholder=" " required/>
   <label>Telefone:</label>
 </div>
   
    <br> <div class="form-group">
     <p><h4>Digite aqui seu comentário:</h4></p><br/>
-    <textarea class="label-float" rows="5" cols="35" placeholder="" style="margin: 0px; height: 160px; width: 614px"; required></textarea></div>
+    <textarea class="label-float" name="comentario" id="comentario" rows="5" cols="35" placeholder="" style="margin: 0px; height: 160px; width: 614px"; required></textarea></div>
     
-    <button class="btn btn-success" >Enviar</button>
+    <button class="btn btn-success" type="submit">Enviar</button>
 </div></div>
 <div class="col-md-2" ></div>
-</div>
+</div></form>
 
 <!-- FIM CODIGO FORM -->
 

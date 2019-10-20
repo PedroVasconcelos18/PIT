@@ -22,21 +22,21 @@ echo "
         echo "    
        
         <tr>
-        <th>ID</th>
-        <th>Nome da empresa:</th>
-        <th>Função a ser exercida:</th>
-        <th>N° de vagas:</th>
-        <th>Sexo:</th>   
-        <th>Duracao vaga:</th>     
+        <th><h3>ID</th>
+        <th><h3>Nome da empresa:</th>
+        <th><h3>Função a ser exercida:</th>
+        <th><h3>N° de vagas:</th>
+        <th><h3>Sexo:</th>   
+        <th><h3>Duracao vaga:</th>     
         </tr> 
 
-        <td>  $row->ID</td>               
-        <td>  $row->nomeEmpresa</td>  
-        <td>  $row->funcaoExercida</td>   
-        <td>  $row->numeroVagas</td> 
-        <td>  $row->Sexo</td>
-        <td>  $row->DuracaoVaga</td>
-        <td>  <a class='btn btn-primary' href='./vagacompleta.php?id=$row->ID'>Ver mais</a> 
+        <td><h3>  $row->ID</td>               
+        <td><h3>  $row->nomeEmpresa</td>  
+        <td><h3>  $row->funcaoExercida</td>   
+        <td><h3>  $row->numeroVagas</td> 
+        <td><h3>  $row->Sexo</td>
+        <td><h3>  $row->DuracaoVaga</td>
+        <td>  <div class='verMais'  align='center'><a class='btn btn-primary' href='./vagacompleta.php?id=$row->ID'>Ver mais</a> </div>
         </td>
         ";
         
@@ -69,5 +69,8 @@ td, th {
 }
 tr:nth-child(even) {
   background-color: #dddddd;
+}
+.verMais{
+  margin-top: 11.5px;
 }
 </style>

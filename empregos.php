@@ -40,7 +40,7 @@
 
         <div class="col-md-4">
     <div class="card carta" style="width: 18rem;">
-    <a href="admin.php" ><img class="card-img-top" src="imagens/admin.jpg" alt="Card image cap"></a>
+    <a href="adminis.php" ><img class="card-img-top" src="imagens/admin.jpg" alt="Card image cap"></a>
   <div class="card-body">
     <p id="admin" class="card-text">Administração</p>
   </div>

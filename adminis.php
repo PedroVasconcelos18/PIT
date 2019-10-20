@@ -11,7 +11,7 @@
 </div>
 <table class="col-sm-10" id="table1" align="center">
 	
-<?php $sql = $conn->prepare("SELECT * FROM vagas WHERE categoria = 'Aux';");
+<?php $sql = $conn->prepare("SELECT * FROM vagas WHERE categoria = 'Adminis';");
 $sql->execute();
 $rows = $sql->fetchAll(PDO::FETCH_CLASS);
 // var_dump($rows); die();
@@ -36,7 +36,7 @@ echo "
         <td><h3>  $row->numeroVagas</td> 
         <td><h3>  $row->Sexo</td>
         <td><h3>  $row->DuracaoVaga</td>
-        <td>  <div class='verMais'  align='center'><a class='btn btn-primary' href='./vagacompleta.php?id=$row->ID'>Ver mais</a> </div>
+        <td>  <div class='verMais'  align='center'><a class='btn btn-primary' href='./vagacompleta.php?id=$row->ID'>Ver mais</a></div> 
         </td>
         ";
         

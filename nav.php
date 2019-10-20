@@ -6,30 +6,48 @@
      <a class="navbar-brand logo1"> <img src="imagens/logo.png" style="height: 45px;"><img/></a>
       <a class="navbar-brand" href="index.php"> Ative-se  </a>
     </div>
+    <!-- Parte do login na direita -->
     <ul class="nav navbar-nav navbar-right">
-    <?php if (isset($_SESSION['aposentadoautonomo']) || isset($_SESSION['empresa']) || isset($_SESSION['admin'])){ ?>
+    <?php if (isset($_SESSION['aposentadoautonomo']) || isset($_SESSION['empresa']) || isset($_SESSION['Admin'])){ ?>
 
                     <li ><a class="textonav" href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Sair</a></li>
          <?php } else { ?>
                     <li ><a class="textonav" href="login.php"><span class="glyphicon glyphicon-log-in"></span> Entrar</a></li>
                 <?php } ?>
           </ul>
+<!--Fim da parte do login na direita -->
     <ul class="nav navbar-nav">
-      <li ><a class="textonav" href="index.php">Página Inicial</a></li>
-     <!-- <li ><a class="textonav" href="Blog.php">Comunidade</a></li> -->
+      <li ><a class="textonav" href="index.php">Inicio</a></li>
+      <!--     
+        Em construção 
+        <li ><a class="textonav" href="Blog.php">Comunidade</a></li> 
+    
+      -->
       <li ><a class="textonav" href="contato.php">Contato</a></li>
       <li ><a class="textonav" href="empregos.php">Vagas disponíveis</a></li>
-      
-       <?php if (isset($_SESSION['aposentadoautonomo']) || isset($_SESSION['empresa']) || isset($_SESSION['admin'])) {?>
+
+      <?php 
+      if(isset($_SESSION['AdminPermissao'])) {  ?>
+
+        <?php if($_SESSION['AdminPermissao'] == 0)  { ?>
+
+        <li><a class="textonav" href="relatorios.php">Relátorios</a></li>
+
+        <?php } else {    } ?>
+
+      <?php } ?>
+
+       <?php if (isset($_SESSION['aposentadoautonomo']) || isset($_SESSION['empresa']) || isset($_SESSION['Admin'])) {?>
         
-       <?php } else {?>
+       <?php } else { ?>
+
         <li class="dropdown">
         <a class="textonav" class="dropdown-toggle" data-toggle="dropdown" style="margin-top: 5px;">Cadastrar
         <span class="caret"></span></a>
-<ul class="dropdown-menu"> 
+     <ul class="dropdown-menu"> 
           <li class="textonav"><a class="textonav" href="cadastroEmpresa.php">Cadastro de Pessoa Juridica</a></li>
           <li class="textonav"><a class="textonav" href="cadastroPessoa.php">Cadastro de Pessoa fisica</a></li>
-          </ul>
+      </ul>
        <?php } ?>
         </ul>
       </li>      

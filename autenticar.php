@@ -11,7 +11,7 @@ if (!isset($_SESSION)) {//Verificar se a sessão não já está aberta.
     $formcomp = $_POST["formcomp"];
     $expp = $_POST["exppro"];
     $phone = $_POST["phone"];
-    $id_aposentado = $_SESSION['idvovo']; // recupera o $_SESSION['idnovo'] da página de curriculo, através do LastId que se encontra no cadastroaposentado.phpa
+    $id_aposentado = $_SESSION['idvovo']; // recupera o $_SESSION['idnovo'] da página de curriculo, através do LastId que se encontra no cadastroaposentado.php
    
 
 
@@ -28,7 +28,7 @@ if (!isset($_SESSION)) {//Verificar se a sessão não já está aberta.
     
     <div class='container'>
     <br><br><br>
-    <h1><div align='center'>Currículo cadastrado com sucesso</div><h1/>
+    <h1><div align='center'>Usuário e currículo cadastrados com sucesso, seja bem-vindo!!</div><h1/>
 
     <form action='login.php'>
     <div class='butao' align='center'>

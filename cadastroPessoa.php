@@ -1,7 +1,11 @@
 <?php include "header.php";?>
-<?php include "nav.php";?>
-<body>
+<?php include "nav.php"; ?>
+<?php include ("classCPFCNPJ/class-valida-cpf-cnpj.php");?>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+
+<body>
+
 
 <h4 align="center">Cadastro de pessoa física</h4>
 <div class="col-md-11 control-label" align="right" >
@@ -17,11 +21,12 @@
   <div class="col-md-6">
 
   <label>Senha: *</label>
-<input class="form-control" type="text" id="senha" name="senha" placeholder="Digite aqui sua senha para entrar no site" required>
+<input class="form-control" type="password" id="senha" name="senha" placeholder="Digite aqui sua senha para entrar no site" required>
 <br/>
 
   <label>CPF (APENAS NÚMEROS): *</label>
 <input class="form-control" type="text" id="cpf" name="cpf" placeholder="Digite aqui seu CPF" required>
+
 <br/>
 
 <label>Data de nascimento: *</label>
@@ -125,6 +130,63 @@
 			});
 		});
   </script>
+<!--  
+//$("#input_RGIE").mask("00.000.000-0");
+
+	function limpa_formulário_cep() {
+		// Limpa valores do formulário de cep.
+		$("#input_Endereco").val("");
+		$("#input_Bairro").val("");
+		$("#input_Cidade").val("");
+		$("#uf").val("");
+		$("#select_Estado").val("");
+	}
+   
+	//Quando o campo cep perde o foco.
+	$("#input_CEP").blur(function() {
+
+		//Nova variável "cep" somente com dígitos.
+		var cep = $(this).val().replace(/\D/g, '');
+
+		//Verifica se campo cep possui valor informado.
+		if (cep != "") {
+
+			//Expressão regular para validar o CEP.
+			var validacep = /^[0-9]{8}$/;
+
+			//Valida o formato do CEP.
+			if(validacep.test(cep)) {
+
+				//Consulta o webservice viacep.com.br/
+				$.getJSON("https://viacep.com.br/ws/"+ cep +"/json/?callback=?", function(dados) {
+
+					if (!("erro" in dados)) {
+						//Atualiza os campos com os valores da consulta.
+						$("#input_Endereco").val(dados.logradouro);
+						$("#input_Bairro").val(dados.bairro);
+						$("#input_Cidade").val(dados.localidade);
+						//$("#uf").val(dados.uf);
+						$("#select_Estado").val(dados.uf);
+					} //end if.
+					else {
+						//CEP pesquisado não foi encontrado.
+						limpa_formulário_cep();
+						alert("CEP não encontrado.");
+					}
+				});
+			} //end if.
+			else {
+				//cep é inválido.
+				limpa_formulário_cep();
+				alert("Formato de CEP inválido.");
+			}
+		} //end if.
+		else {
+			//cep sem valor, limpa formulário.
+			//limpa_formulário_cep();
+		}
+	});
+}); -->
 
   
   

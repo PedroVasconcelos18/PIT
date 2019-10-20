@@ -4,8 +4,8 @@ if (!isset($_SESSION))
 {                       //Verificar se a sessão não já está aberta.
 session_start();
 }
-
-
+ 
+    
     $cnpj = $_POST["cnpj"];
     $email = $_POST["email"];
     $telefone = $_POST["phone"];
@@ -14,8 +14,6 @@ session_start();
     $ramo = $_POST["ramo"];
     $senha = $_POST["senha"];
 
-
- 
   
       
     try {
@@ -23,10 +21,11 @@ session_start();
     
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "INSERT INTO empresa (Id, CNPJ, nome, CEP, telefone, ramoEmpresa, email, senha, tipo_usuario)
-        VALUES (NULL, '$cnpj', '$nome','$cep','$telefone','$ramo','$email', MD5('$senha'), '1')";
+        VALUES (NULL, '$cnpj', '$nome','$cep','$telefone','$ramo','$email', MD5('$senha'), 2)";
     
         $conn->exec($sql);
-    
+    include "header.php";
+    include "nav.php";
         echo "
     <div class='container'>
     <br><br><br>
@@ -43,9 +42,6 @@ session_start();
     
     
     }
-    
-
-    
     catch(PDOException $e)
         {
         echo $sql . "<br>" . $e->getMessage();
