@@ -23,64 +23,67 @@ echo "
 <div class='container' align='center'>
 <table class='table table-striped'>";
     foreach ($rows as $row) {
-        echo "      
-        
-            <tr>
-        <th><h3>ID</th>
+        echo "    
+
+                <tr>
         <th><h3>Nome da empresa:</th>
         <th><h3>Função a ser exercida:</th>
-        
-        <th><h3>Conhecimentos Necessários:</th>  
-        <th><h3>Contato:</th>
-            </tr>  
-        <td id='id' name='id'><h3> $row->ID </td>               
+        <th><h3>Valor da bolsa:</th>
+        <th><h3>Horário de trabalho:</th>
+        <th><h3>Conhecimentos necessários:</th>
+           </tr>       
+           
+           </td>
         <td><h3> $row->nomeEmpresa </td>  
         <td><h3> $row->funcaoExercida</td> 
-        <td><h3> $row->numeroVagas</td> 
+        <td><h3> $row->valorBolsa</td> 
+        <td><h3> $row->HorarioTrabalho</td>
         <td><h3> $row->conhecimentosNecessarios</td>
-        <td><h3> $row->Contato</td> 
             </td>
-            
-            <tr>
-        <th><h3>Sexo:</th>
-        <th><h3>Valor da bolsa:</th>
-        <th><h3>Duracao da vaga:</th>
-        <th><h3>Beneficios:</th>
-        <th><h3>Observacoes:</th>
-        <th><h3>Horario:</th>    
-           </tr>      
-        <td><h3> $row->Sexo</td>
-        <td><h3> $row->valorBolsa</td>
-        <td><h3> $row->DuracaoVaga</td>
-        <td><h3> $row->Beneficios</td>
-        <td><h3> $row->Observacoes</td>
-        <td><h3> $row->HorarioTrabalho<h3>
-            </td> 
-          <th><h3>N° de vagas:</th>
+             </table>
+
+
+        <div class='textoVaga' align='left'>
+
+         <h3> Duração da vaga: $row->DuracaoVaga</h3>
+         <h3> Beneficios: $row->Beneficios</h3>
+         <h3> Observações: $row->Observacoes</h3>
+         <h3> CEP: $row->CEP</h3>
+         <h3> Número da casa: $row->numeroCasa</h3>
+         <h3> Contato: $row->Contato</h3>
+         
+        
+
+        </div>
         ";
-        echo "</table>";
+       
 
         // botão de inscrição
-       $idAposentado = $_SESSION['idAposentado'];
-        if($_SESSION == isset($_SESSION['aposentadoautonomo'])){
+       
+     
+
+        if( isset($_SESSION['aposentadoautonomo']))
+          {
+         $idAposentado = $_SESSION['idAposentado'];
+       $permissaoAposentado = $_SESSION['aposentadoPermissao'];
+          if($permissaoAposentado == 0)
+          {
            echo ""; echo "<a class='btn btn-success' href='./autenticarIncrisc.php?iduser=$idAposentado&idvaga=$idVaga'>Inscrever</a>"; echo ""; 
         }else {
           echo "<h2>Para se inscrever, por favor faça login</h3>";
         }
-
+          }
        // botão excluir
         echo ""; 
-        if($_SESSION == isset($_SESSION['empresa']))
-        {
-         if($_SESSION['idEmpresa'] == $row->Empresa_ID ){  
+        if(isset($_SESSION['empresa']))
+        {  
+         if( $_SESSION['idEmpresa'] == $row->Empresa_ID){  
         echo "<a class='btn btn-danger' href='./excluirVaga.php?idvaga=$row->ID'>Excluir vaga</a>  "; 
-         }}else{
+         }
+        }else{
         
-        } }  echo"</div>";
-        
-       
-    
-    
+        } }   echo"</div>";
+
     ?>
 <br/><br/>
 </form>

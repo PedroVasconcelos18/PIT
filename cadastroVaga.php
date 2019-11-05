@@ -1,5 +1,7 @@
 <?php include "header.php"?>
 <?php include "nav.php"?>
+
+
 <body>
 <h4 align="center">Cadastro de nova vaga</h4><br><br>
 <div class="col-md-11 control-label" align="right" >
@@ -11,7 +13,6 @@
 <input class="form-control" type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
 <br/>
   <div class="col-md-6">
-
   <label>CEP: *</label>
 <input class="form-control" type="text" id="cep" name="cep" placeholder="Apenas números" required><br/>
 
@@ -58,6 +59,7 @@
 			<option value="SE">Sergipe</option>
       		<option value="TO">Tocantins</option>
 </select><br/>
+
 
 <script type="text/javascript">
 		$("#cep").focusout(function(){
