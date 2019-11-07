@@ -26,6 +26,22 @@ $idEmpresa = $_SESSION['idEmpresa'];
 catch(PDOException $ex){
 echo "Erro nas váriaveis";
 }  
+
+    function limpaCPF_CNPJ($contato){
+        $contato = trim($contato);
+        $contato = str_replace(".", "", $contato);
+        $contato = str_replace(",", "", $contato);
+        $contato = str_replace("-", "", $contato);
+        $contato = str_replace("/", "", $contato);
+        $contato = str_replace("(", "", $contato);
+        $contato = str_replace(")", "", $contato);
+        return $contato;
+        }
+        
+    $funcao = limpaCPF_CNPJ($contato);
+
+
+
   
       
     try {
@@ -34,7 +50,7 @@ echo "Erro nas váriaveis";
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "INSERT INTO vagas (ID, numeroVagas, Sexo, valorBolsa, Contato, conhecimentosNecessarios, 
         Beneficios, Observacoes, HorarioTrabalho, nomeEmpresa, funcaoExercida, DuracaoVaga, categoria, CEP, numeroCasa, Empresa_ID)
-        VALUES (NULL, '$vagas', '$sexo','$bolsa', '$contato', '$CN', '$benefi','$obs','$horaT', '$nome', '$func', '$durac', '$catego','$cep','$num','$idEmpresa')";
+        VALUES (NULL, '$vagas', '$sexo','$bolsa', '$funcao', '$CN', '$benefi','$obs','$horaT', '$nome', '$func', '$durac', '$catego','$cep','$num','$idEmpresa')";
     
         $conn->exec($sql);
 

@@ -114,6 +114,8 @@
 	});
 
 
+
+
 		$("#cep").focusout(function(){
 			//Início do Comando AJAX
 			$.ajax({

@@ -13,6 +13,22 @@ if (!isset($_SESSION)) {//Verificar se a sessão não já está aberta.
     $phone = $_POST["phone"];
     $id_aposentado = $_SESSION['idvovo']; // recupera o $_SESSION['idnovo'] da página de curriculo, através do LastId que se encontra no cadastroaposentado.php
    
+    function limpaCPF_CNPJ($phone){
+        $phone = trim($phone);
+        $phone = str_replace(".", "", $phone);
+        $phone = str_replace(",", "", $phone);
+        $phone = str_replace("-", "", $phone);
+        $phone = str_replace("/", "", $phone);
+        $phone = str_replace("(", "", $phone);
+        $phone = str_replace(")", "", $phone);
+        return $phone;
+        }
+        
+       $funcao = limpaCPF_CNPJ($phone);
+
+
+
+
 
 
     try {
@@ -20,7 +36,7 @@ if (!isset($_SESSION)) {//Verificar se a sessão não já está aberta.
 
         $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "INSERT INTO curriculo (Id, expProfssi, resumoHabili, formAcadem, formCompl, telefone, AposentadoAutonomo_ID)
-        VALUES (NULL, '$expp', '$reshab','$formacad','$formcomp','$phone','$id_aposentado')";
+        VALUES (NULL, '$expp', '$reshab','$formacad','$formcomp','$funcao','$id_aposentado')";
         $con->exec($sql);
         include 'header.php'; 
         include 'nav.php';

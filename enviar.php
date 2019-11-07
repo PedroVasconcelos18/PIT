@@ -2,10 +2,24 @@
 require_once("phpmailer/class.phpmailer.php");
 
 
+
 $nome = $_POST["nome"];
 $email = $_POST["email"];
 $telefone = $_POST["telefone"];
 $comentario = $_POST["comentario"];
+
+function limpaPhone($telefone){
+  $telefone = trim($telefone);
+  $telefone = str_replace(".", "", $telefone);
+  $telefone = str_replace(",", "", $telefone);
+  $telefone = str_replace("-", "", $telefone);
+  $telefone = str_replace("/", "", $telefone);
+  $telefone = str_replace("(", "", $telefone);
+  $telefone = str_replace(")", "", $telefone);
+  return $telefone;
+  }
+
+ $telefone = limpaPhone($telefone);
 
 $usuario = 'ativase.vagas@gmail.com';
 $senha = 'pit2019123';

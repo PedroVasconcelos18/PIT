@@ -23,7 +23,7 @@ echo "
 <div class='container' align='center'>
 <table class='table table-striped'>";
     foreach ($rows as $row) {
-        echo "    
+        echo "
 
                 <tr>
         <th><h3>Nome da empresa:</th>
@@ -31,7 +31,7 @@ echo "
         <th><h3>Valor da bolsa:</th>
         <th><h3>Horário de trabalho:</th>
         <th><h3>Conhecimentos necessários:</th>
-           </tr>       
+           </tr>
            
            </td>
         <td><h3> $row->nomeEmpresa </td>  
@@ -66,7 +66,7 @@ echo "
           {
          $idAposentado = $_SESSION['idAposentado'];
        $permissaoAposentado = $_SESSION['aposentadoPermissao'];
-          if($permissaoAposentado == 0)
+          if($permissaoAposentado == 1)
           {
            echo ""; echo "<a class='btn btn-success' href='./autenticarIncrisc.php?iduser=$idAposentado&idvaga=$idVaga'>Inscrever</a>"; echo ""; 
         }else {
@@ -78,7 +78,9 @@ echo "
         if(isset($_SESSION['empresa']))
         {  
          if( $_SESSION['idEmpresa'] == $row->Empresa_ID){  
-        echo "<a class='btn btn-danger' href='./excluirVaga.php?idvaga=$row->ID'>Excluir vaga</a>  "; 
+        echo "<a class='btn btn-danger' href='./excluirVaga.php?idvaga=$row->ID'>Excluir vaga</a> "; 
+
+        echo "<a class='btn btn-info' href='./RelatorioInscricoesEmpresa.php?idvaga=$row->ID'>Inscrições</a> ";
          }
         }else{
         

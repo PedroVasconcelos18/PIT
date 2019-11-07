@@ -14,6 +14,28 @@ session_start();
     $ramo = $_POST["ramo"];
     $senha = $_POST["senha"];
 
+    function limpaCPF_CNPJ($cnpj){
+        $cnpj = trim($cnpj);
+        $cnpj = str_replace(".", "", $cnpj);
+        $cnpj = str_replace(",", "", $cnpj);
+        $cnpj = str_replace("-", "", $cnpj);
+        $cnpj = str_replace("/", "", $cnpj);
+        return $cnpj;
+        }
+
+        function limpaPhone($telefone){
+            $telefone = trim($telefone);
+            $telefone = str_replace(".", "", $telefone);
+            $telefone = str_replace(",", "", $telefone);
+            $telefone = str_replace("-", "", $telefone);
+            $telefone = str_replace("/", "", $telefone);
+            $telefone = str_replace("(", "", $telefone);
+            $telefone = str_replace(")", "", $telefone);
+            return $telefone;
+            }
+        
+       $tel = limpaPhone($telefone); 
+       $funcao = limpaCPF_CNPJ($cnpj);
   
       
     try {
@@ -21,7 +43,7 @@ session_start();
     
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "INSERT INTO empresa (Id, CNPJ, nome, CEP, telefone, ramoEmpresa, email, senha, tipo_usuario)
-        VALUES (NULL, '$cnpj', '$nome','$cep','$telefone','$ramo','$email', MD5('$senha'), $logra, 2)";
+        VALUES (NULL, '$funcao', '$nome','$cep','$tel','$ramo','$email', MD5('$senha'), 2)";
     
         $conn->exec($sql);
     include "header.php";

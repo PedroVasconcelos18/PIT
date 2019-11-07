@@ -11,15 +11,23 @@
     $senha = $_POST["senha"];
     $num = $_POST["num"];
 
-
-
+    function limpaCPF_CNPJ($cpf){
+        $cpf = trim($cpf);
+        $cpf = str_replace(".", "", $cpf);
+        $cpf = str_replace(",", "", $cpf);
+        $cpf = str_replace("-", "", $cpf);
+        $cpf = str_replace("/", "", $cpf);
+        return $cpf;
+        }
+        
+       $funcao = limpaCPF_CNPJ($cpf);
       
     try {
         $conn = new PDO("mysql:host=localhost;dbname=pit", 'root', '');
     
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "INSERT INTO aposentadoautonomo (Id, CPF, DataNasc, nome, CEP, email, senha, numero, tipo_usuario)
-        VALUES (NULL, '$cpf', '$dataNasc','$nome','$cep','$email',MD5('$senha'), '$num', 1)";
+        VALUES (NULL, '$funcao', '$dataNasc','$nome','$cep','$email',MD5('$senha'), '$num', 1)";
     
         $conn->exec($sql);
     

@@ -111,6 +111,18 @@
 </div>
         </div>
     </div>
+
+    <!-- COMEÇO DA QUARTA LINHA DE VAGAS -->
+
+    <div class="container" align="center">
+        <div class="col-md-4">
+    <div class="card carta" style="width: 18rem;">
+    <a href="outrosEmpregos.php" ><img class="card-img-top" src="imagens/outros.jpg" alt="Card image cap"></a>
+  <div class="card-body">
+    <p id="coding" class="card-text">Outros</p>
+  </div>
+</div>
+
 </body>
 <br/><br/>
 </html>

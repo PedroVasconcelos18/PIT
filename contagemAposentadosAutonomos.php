@@ -3,7 +3,11 @@
 <?php include "header.php";?>
 <?php include "nav.php";?>
 <?php include "conexao.php";?>
-<?php// include "classCPFCNPJ/class-valida-cpf-cnpj.php"; ?>
+
+
+<?php if( isset( $_SESSION['AdminPermissao'] ) )  { 
+        if( $_SESSION['AdminPermissao'] == 0 ) { ?>
+        
 <body>
 <div class="container" align="center">
    <br/> <h3>Usuários cadastrados até o momento</h3><br/>
@@ -75,3 +79,28 @@ tr:nth-child(even) {
 .conteudo{
    float: center; 
 }
+
+
+
+<?php } } else {  ?>
+    
+    <div class='container-fluid' align='center'><h1>Opss!! Parece que você se enganou de página.</h1></div>
+
+<br><br>
+<div class="col-sm-1"></div>
+<div class="col-sm-10" align='center'>
+    <a href="index.php" class="btn btn-success"><h3>Clique aqui para voltar a página inicial</h3></a>
+    <br/>
+</div>
+    
+    
+    
+    
+<?php }  ?> 
+
+
+
+
+
+
+

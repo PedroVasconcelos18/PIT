@@ -1,5 +1,12 @@
 <?php include "header.php";?>
 <?php include "nav.php";?>
+<!-- Isso é o jquery do CEP, para buscar os lugares   -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script> 
+
+<!-- Isso é o jquery do CPF, para ter a mascara   -->
+<script type="text/javascript" src="js/jquery-1.2.6.pack.js"></script>
+<script type="text/javascript" src="js/jquery.maskedinput-1.1.4.pack.js"></script>
 <body>
 	
 <h4 align="center">Cadastro de pessoa juridica</h4>
@@ -84,6 +91,22 @@
 </select><br/>
 
 <script type="text/javascript">
+
+			$(document).ready(function(){
+				$("#cnpj").mask("99.999.999/9999-99");
+			});
+			
+			$(document).ready(function(){
+				$("#cep").mask("99999-999");
+			});
+			
+
+			$(document).ready(function(){
+				$("#phone").mask("(99)99999-9999");
+			});
+
+
+
 		$("#cep").focusout(function(){
 			//Início do Comando AJAX
 			$.ajax({

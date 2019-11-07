@@ -1,5 +1,12 @@
 <?php include "header.php"?>
 <?php include "nav.php"?>
+<!-- Isso é o jquery do CEP, para buscar os lugares   -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script> 
+
+<!-- Isso é o jquery do CPF, para ter a mascara   -->
+<script type="text/javascript" src="js/jquery-1.2.6.pack.js"></script>
+<script type="text/javascript" src="js/jquery.maskedinput-1.1.4.pack.js"></script>
 
 
 <body>
@@ -62,6 +69,17 @@
 
 
 <script type="text/javascript">
+
+			$(document).ready(function(){
+				$("#cep").mask("99999-999");
+			});
+
+			$(document).ready(function(){
+				$("#contato").mask("(99)99999-9999");
+			});
+		
+
+
 		$("#cep").focusout(function(){
 			//Início do Comando AJAX
 			$.ajax({
@@ -133,6 +151,7 @@
 <option value="Prog">Programação</option>
 <option value="Infra">Técnino em infraestrutura</option>
 <option value="Construc">Construção</option>
+<option value="Outros">Outros</option>
 </select>
 <br>
 

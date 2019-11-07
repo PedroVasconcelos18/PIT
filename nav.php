@@ -46,7 +46,7 @@
         <span class="caret"></span></a>
      <ul class="dropdown-menu"> 
           <li class="textonav"><a class="textonav" href="cadastroEmpresa.php">Cadastro de Pessoa Juridica</a></li>
-          <li class="textonav"><a class="textonav" href="cadastroPessoa.php">Cadastro de Pessoa fisica</a></li>
+          <li class="textonav"><a class="textonav" href="cadastroPessoa.php">Cadastro de Pessoa Física</a></li>
       </ul>
        <?php } ?>
         </ul>
